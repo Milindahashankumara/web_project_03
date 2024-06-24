@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<html>
 <head>
 
     <title>Sign in and sign up Form</title>
@@ -13,26 +13,26 @@
     <div class="container">
 
         <div class="form-box">
-            <h1>Sign Up</h1>
+            <h1 id="title">Sign Up</h1>
 
-            <form>
+            <form method="post"  action="save.php">
 
                 <div class="input-group">
 
 
-                    <div class="input-field">
+                    <div class="input-field" id="nameField">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="Name">
+                        <input type="text" placeholder="Name" name="name">
                     </div>
 
                     <div class="input-field">
                         <i class="fa-solid fa-envelope"></i>
-                        <input type="email" placeholder="Email">
+                        <input type="email" placeholder="Email" name="email">
                     </div>
 
                     <div class="input-field">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" placeholder="Password">
+                        <input type="password" placeholder="Password" name="password">
                     </div>
 
                     <p>Lost Password <a href="#">Click here!</a></p>
@@ -40,8 +40,8 @@
                 </div>
 
                 <div class="btn-field">
-                    <button type="button">Sign Up</button>
-                    <button type="button">Sign In</button>
+                    <button type="submit" id="signupBtn">Sign Up</button>
+                    <button type="button" class="disable" id="signinBtn">Sign In</button>
                 </div>
 
             </form>
@@ -51,5 +51,35 @@
     </div>
 
 
+    <script>
+
+        let signupBtn = document.getElementById("signupBtn");
+        let signinBtn = document.getElementById("signinBtn");
+        let nameFieldm= document.getElementById("nameField");
+        let title = document.getElementById("title");
+
+
+        signinBtn.onclick = function(){
+            nameField.style.maxHeight = "0";
+            title.innerHTML = "Sign In";
+            signupBtn.classList.add("disable");
+            signinBtn.classList.remove("disable");
+        }
+
+        signupBtn.onclick = function(){
+            nameField.style.maxHeight = "60px";
+            title.innerHTML = "Sign Up";
+            signupBtn.classList.remove("disable");
+            signinBtn.classList.add("disable");
+        }
+
+    </script>
+
 
 </body>
+
+
+
+
+</html>
+
