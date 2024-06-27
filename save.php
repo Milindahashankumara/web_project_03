@@ -14,5 +14,11 @@ if(mysqli_query($path,$sql))
     echo("Data Saved Completed");
 }
 
+$command="update details set Email='$email' where  Name='$name'";
+
+if(mysqli_query($path,$command))
+{
+    echo("<br>Data Updated");
+}
 
 ?>
